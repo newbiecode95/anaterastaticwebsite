@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatera | AI & Digital Transformation Experts</title>
+    <!-- Add favicon -->
+    <link rel="icon" type="image/png" href="https://anaterastaticwebsite.s3.ap-southeast-2.amazonaws.com/Logo+Icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #0b0d30;
+            --secondary: #1a1b4b;
+            --accent-1: #4731b6;
+            --accent-2: #6a3de8;
+            --accent-3: #4ecdc4;
+            --text: #f7f7f7;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--primary);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card {
+            background: rgba(26, 27, 75, 0.7);
+            border: 1px solid rgba(74, 49, 182, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-2);
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
+        .navbar {
+            background: rgba(11, 13, 48, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .number-counter {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .case-study {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 13, 48, 0.3), rgba(11, 13, 48, 0.9));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(26, 27, 75, 0.9), rgba(11, 13, 48, 0.9));
+            border-left: 4px solid var(--accent-2);
+        }
+        
+        .contact-form input, .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-2);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(106, 61, 232, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                background: rgba(11, 13, 48, 0.95);
+                backdrop-filter: blur(10px);
+            }
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+        
+        /* Custom pulse animation for elements */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(106, 61, 232, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(106, 61, 232, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(106, 61, 232, 0);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Custom floating animation for icons */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Typing animation for hero text */
+        .typing-container {
+            display: inline-block;
+        }
+        
+        @keyframes blink {
+            0%, 100% {opacity: 1;}
+            50% {opacity: 0;}
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 0.8em;
+            background-color: white;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+        
+        /* Technology stack section with changing background */
+        #tech-stack {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #tech-stack::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #0b0d30, #1a1b4b, #4731b6, #0b0d30);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        #tech-stack .container {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navigation -->
+    <header class="navbar fixed top-0 w-full py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-3xl font-bold mr-2 text-gradient">ANATERA</div>
+            </div>
+            
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#services" class="text-white hover:text-accent-3 transition">Services</a></li>
+                    <li><a href="#case-studies" class="text-white hover:text-accent-3 transition">Case Studies</a></li>
+                    <li><a href="#about" class="text-white hover:text-accent-3 transition">About</a></li>
+                    <li><a href="#contact" class="text-white hover:text-accent-3 transition">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="md:hidden text-white text-xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 hidden flex-col justify-center items-center">
+            <button class="absolute top-5 right-5 text-white text-2xl" id="close-menu-button">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="text-center space-y-6">
+                <li><a href="#services" class="text-white text-2xl">Services</a></li>
+                <li><a href="#case-studies" class="text-white text-2xl">Case Studies</a></li>
+                <li><a href="#about" class="text-white text-2xl">About</a></li>
+                <li><a href="#contact" class="text-white text-2xl">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div id="particles-js"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        <span>MODERN PROBLEMS</span><br>
+                        <span>REQUIRE</span><br>
+                        <span class="text-gradient"><span id="intelligent-text">INTELLIGENT</span> SOLUTIONS</span>
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 text-gray-300">
+                        Anatera delivers cutting-edge AI and digital transformation solutions that empower your business to thrive in the modern technological landscape.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-gradient px-8 py-3 rounded-full font-medium">Get Started</a>
+                        <a href="#services" class="border border-white hover:border-accent-2 px-8 py-3 rounded-full font-medium transition">Learn More</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative">
+                        <div class="w-full h-80 md:h-96 bg-gradient-to-br from-accent-1 to-accent-3 rounded-2xl opacity-20 absolute -rotate-6 scale-95"></div>
+                        <div class="w-full h-80 md:h-96 bg-gradient-to-tr from-primary to-accent-2 rounded-2xl relative z-10 overflow-hidden">
+                            <div class="absolute inset-0 opacity-30">
+                                <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                                    <defs>
+                                        <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                                            <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                                            <stop offset="0%" stop-color="rgba(255, 0, 255, 0.5)"></stop>
+                                            <stop offset="100%" stop-color="rgba(255, 0, 255, 0)"></stop>
+                                        </radialGradient>
+                                        <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+                                            <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                                            <stop offset="0%" stop-color="rgba(0, 255, 255, 0.5)"></stop>
+                                            <stop offset="100%" stop-color="rgba(0, 255, 255, 0)"></stop>
+                                        </radialGradient>
+                                    </defs>
+                                    <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
+                                        <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
+                                        <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+                                        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
+                                        <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite" />
+                                        <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite" />
+                                        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="-360 50 50" dur="18s" repeatCount="indefinite"/>
+                                    </rect>
+                                </svg>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center p-6">
+                                <div class="text-center">
+                                    <div class="mb-4">
+                                        <!-- Removed float class from logo -->
+                                        <img src="https://anaterastaticwebsite.s3.ap-southeast-2.amazonaws.com/Logo+Icon.png" alt="Anatera Logo" class="h-24 w-auto mx-auto">
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2">Intelligent Solutions</h3>
+                                    <p class="text-gray-300">Powered by advanced AI & machine learning</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10" data-aos="fade-up" data-aos-duration="1000">
+                <div class="text-center">
+                    <div class="number-counter mb-2">95%</div>
+                    <p class="text-gray-300">Of our clients report increased operational efficiency</p>
+                </div>
+                <div class="text-center">
+                    <div class="number-counter mb-2">42%</div>
+                    <p class="text-gray-300">Average cost reduction through AI-powered automation</p>
+                </div>
+                <div class="text-center">
+                    <div class="number-counter mb-2">3.5x</div>
+                    <p class="text-gray-300">Return on investment from digital transformation solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Cutting-edge solutions powered by advanced technology and AI expertise
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI & Machine Learning -->
+                <div class="card rounded-xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon mb-6 float">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI & Machine Learning</h3>
+                    <p class="text-gray-300 mb-6">
+                        Custom AI solutions that analyze your data, predict trends, and automate complex decision processes.
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Predictive analytics models</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Natural language processing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Computer vision solutions</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Digital Transformation -->
+                <div class="card rounded-xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon mb-6 float">
+                        <i class="fas fa-digital-tachograph"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Digital Transformation</h3>
+                    <p class="text-gray-300 mb-6">
+                        Comprehensive strategies to modernize your business operations and customer experiences.
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Business process automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Legacy system modernization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Digital customer experience</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Smart Analytics -->
+                <div class="card rounded-xl p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon mb-6 float">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Smart Analytics</h3>
+                    <p class="text-gray-300 mb-6">
+                        Transform raw data into actionable business intelligence with advanced analytics.
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Business intelligence dashboards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Big data processing & analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Real-time reporting systems</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Intelligent Automation -->
+                <div class="card rounded-xl p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon mb-6 float">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Intelligent Automation</h3>
+                    <p class="text-gray-300 mb-6">
+                        Streamline operations with AI-powered automation solutions that learn and improve over time.
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Robotic Process Automation (RPA)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Cognitive automation systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Workflow optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Strategic Consulting -->
+                <div class="card rounded-xl p-8" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon mb-6 float">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Strategic Consulting</h3>
+                    <p class="text-gray-300 mb-6">
+                        Expert guidance on implementing technology solutions that align with your business goals.
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Technology roadmap development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Digital strategy workshops</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Change management support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Cybersecurity AI -->
+                <div class="card rounded-xl p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon mb-6 float">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Cybersecurity AI</h3>
+                    <p class="text-gray-300 mb-6">
+                        Protect your digital assets with intelligent threat detection and prevention systems.
+                    </p>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>AI-powered threat detection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Security posture assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-accent-3 mr-2 mt-1"></i>
+                            <span>Compliance & risk management</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Process Section -->
+    <section class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our AI-Driven Approach</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    How we leverage artificial intelligence to transform your business
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Process Steps -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-accent-2 transform -translate-x-1/2"></div>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center mb-20" data-aos="fade-right">
+                    <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0 text-right">
+                        <h3 class="text-2xl font-bold mb-4 text-gradient">01. Data Collection & Analysis</h3>
+                        <p class="text-gray-300">
+                            We begin by gathering and analyzing your existing data, identifying patterns and opportunities that human analysis might miss. Our AI systems process structured and unstructured data to create a comprehensive understanding of your business landscape.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 relative">
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center z-10 pulse">
+                            <i class="fas fa-database text-white"></i>
+                        </div>
+                        <div class="card rounded-xl p-6 ml-6">
+                            <div class="chart-container">
+                                <canvas id="dataAnalysisChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center mb-20" data-aos="fade-left">
+                    <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4 text-gradient">02. AI Model Development</h3>
+                        <p class="text-gray-300">
+                            Our team creates custom AI models tailored to your specific business needs. Whether it's predictive analytics, natural language processing, or computer vision, we build solutions that deliver measurable results.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 md:pr-16 relative">
+                        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center z-10 pulse">
+                            <i class="fas fa-code-branch text-white"></i>
+                        </div>
+                        <div class="card rounded-xl p-6 mr-6">
+                            <div class="flex justify-center">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="h-16 mx-2">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-16 mx-2">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="h-16 mx-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center mb-20" data-aos="fade-right">
+                    <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0 text-right">
+                        <h3 class="text-2xl font-bold mb-4 text-gradient">03. Integration & Implementation</h3>
+                        <p class="text-gray-300">
+                            We seamlessly integrate AI solutions with your existing systems and workflows. Our implementation strategies ensure minimal disruption while maximizing adoption and effectiveness throughout your organization.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 relative">
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center z-10 pulse">
+                            <i class="fas fa-plug text-white"></i>
+                        </div>
+                        <div class="card rounded-xl p-6 ml-6">
+                            <div class="flex items-center justify-center">
+                                <div class="text-4xl text-accent-3 mx-3 float">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="text-4xl text-white mx-3">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="text-4xl text-accent-2 mx-3 float">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row-reverse items-center" data-aos="fade-left">
+                    <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4 text-gradient">04. Continuous Improvement</h3>
+                        <p class="text-gray-300">
+                            Our AI solutions are designed to learn and improve over time. We provide ongoing monitoring, maintenance, and optimization to ensure your systems continue to deliver increasing value as your business evolves.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 md:pr-16 relative">
+                        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center z-10 pulse">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <div class="card rounded-xl p-6 mr-6">
+                            <div class="chart-container">
+                                <canvas id="improvementChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Success Stories</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Real-world transformations powered by our AI and digital solutions
+                </p>
+            </div>
+            <!-- Ubah gap grid agar lebih rapat -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                <!-- Case Study 1 -->
+                <div class="case-study rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-80 bg-gradient-to-br from-accent-1 to-accent-3 relative">
+                        <div class="case-overlay">
+                            <span class="text-accent-3 font-medium mb-2">Education</span>
+                            <h3 class="text-xl font-bold mb-2">Institut Desain dan Bisnis Bali</h3>
+                            <p class="text-sm text-gray-300 mb-4">Digital Marketing Strategy</p>
+                            <div class="flex items-center">
+                                <div class="bg-accent-2 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    +35% Student Enrollment
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-secondary rounded-b-xl">
+                        <p class="text-gray-300">
+                            Implemented an AI-driven marketing strategy targeting high school audiences through psychological profiling and personalized content delivery.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="case-study rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-80 bg-gradient-to-br from-accent-2 to-primary relative">
+                        <div class="case-overlay">
+                            <span class="text-accent-3 font-medium mb-2">Higher Education</span>
+                            <h3 class="text-xl font-bold mb-2">RMIT University</h3>
+                            <p class="text-sm text-gray-300 mb-4">IT Support Enhancement</p>
+                            <div class="flex items-center">
+                                <div class="bg-accent-2 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    100% SLA Compliance
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-secondary rounded-b-xl">
+                        <p class="text-gray-300">
+                            Deployed AI-powered remote technicians and smart ticketing systems to dramatically improve response times and user satisfaction.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="case-study rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-80 bg-gradient-to-br from-primary to-accent-1 relative">
+                        <div class="case-overlay">
+                            <span class="text-accent-3 font-medium mb-2">Public Safety</span>
+                            <h3 class="text-xl font-bold mb-2">POLANTAS Bali</h3>
+                            <p class="text-sm text-gray-300 mb-4">Social Media Transformation</p>
+                            <div class="flex items-center">
+                                <div class="bg-accent-2 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Significant Engagement Increase
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-secondary rounded-b-xl">
+                        <p class="text-gray-300">
+                            Created dynamic visual content and applied AI-driven engagement strategies to boost traffic safety awareness across digital channels.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Case Study 4 (Newly Added) -->
+                <div class="case-study rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-80 bg-gradient-to-br from-accent-3 to-accent-2 relative">
+                        <div class="case-overlay">
+                            <span class="text-accent-3 font-medium mb-2">Finance</span>
+                            <h3 class="text-xl font-bold mb-2">Fides Capital</h3>
+                            <p class="text-sm text-gray-300 mb-4">Website Transformation</p>
+                            <div class="flex items-center">
+                                <div class="bg-accent-2 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Modern, Lightweight, Impactful
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-secondary rounded-b-xl">
+                        <p class="text-gray-300">
+                            Using AI-powered modern tools, we delivered a transformative, lightweight website for Fides Capital (Melbourne, Australia), enhancing their digital presence and client engagement.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Case Study 5 (Newly Added) -->
+                <div class="case-study rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-80 bg-gradient-to-br from-accent-1 to-accent-3 relative">
+                        <div class="case-overlay">
+                            <span class="text-accent-3 font-medium mb-2">Retail</span>
+                            <h3 class="text-xl font-bold mb-2">Lorini Grocer Ubud</h3>
+                            <p class="text-sm text-gray-300 mb-4">AI Vision for Point of Sales</p>
+                            <div class="flex items-center">
+                                <div class="bg-accent-2 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Barcode-Free Checkout
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-secondary rounded-b-xl">
+                        <p class="text-gray-300">
+                            Implemented an AI-powered vision system for Lorini Grocer Ubud, enabling seamless point of sales for traditional items without barcodes. This innovation streamlines checkout and inventory for local products.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Case Study 6 (Newly Added) - Global Presence with globe removed -->
+                <div class="case-study rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-80 bg-gradient-to-br from-accent-2 to-accent-1 relative flex items-end">
+                        <div class="case-overlay flex flex-col items-start justify-end">
+                            <span class="text-accent-3 font-medium mb-2">Global</span>
+                            <h3 class="text-xl font-bold mb-2">Anatera Global Presence</h3>
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="flex items-center gap-2 text-lg text-white">
+                                    <i class="fas fa-flag text-accent-2"></i> Indonesia
+                                </span>
+                                <span class="flex items-center gap-2 text-lg text-white">
+                                    <i class="fas fa-flag text-accent-3"></i> Australia
+                                </span>
+                            </div>
+                            <!-- Globe icon removed from here -->
+                        </div>
+                    </div>
+                    <div class="p-6 bg-secondary rounded-b-xl">
+                        <p class="text-gray-300">
+                            Anatera delivers AI-powered solutions for clients in both Indonesia and Australia, supporting digital transformation across the region.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Metrics -->
+            <div class="mt-20" data-aos="fade-up">
+                <h3 class="text-2xl font-bold mb-8 text-center">Measurable Impact</h3>
+                <div class="chart-container h-96 w-full mb-8">
+                    <canvas id="resultsChart"></canvas>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    <div class="card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">ROI Timeline</h4>
+                            <span class="text-accent-3 text-3xl">
+                                <i class="fas fa-chart-line"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-300">Our clients typically see positive ROI within 6-8 months of implementation</p>
+                    </div>
+                    <div class="card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Efficiency Gains</h4>
+                            <span class="text-accent-3 text-3xl">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-300">Process automation reduces operational costs by an average of 42%</p>
+                    </div>
+                    <div class="card rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Customer Impact</h4>
+                            <span class="text-accent-3 text-3xl">
+                                <i class="fas fa-users"></i>
+                            </span>
+                        </div>
+                        <p class="text-gray-300">87% of clients report improved customer satisfaction scores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Approach Section -->
+    <section id="about" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Approach</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    What sets Anatera apart is our data-driven methodology
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6">Fact-Based Solutions</h3>
+                    <p class="text-gray-300 mb-6">
+                        At Anatera, we don't just rely on intuition or general best practices. Our approach is grounded in extensive analysis and research, ensuring that every recommendation is backed by data and proven methodologies.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        While many consultants offer subjective advice, we provide solutions based on quantifiable metrics and evidence-based strategies tailored specifically to your business context.
+                    </p>
+                    <div class="card rounded-xl p-6 border-l-4 border-accent-2">
+                        <p class="text-gray-300 italic">
+                            "We are the only business consultant that provides fact-based solutions through analysis and research, unlike other consultants who offer solutions based on expert intuition, which is highly subjective."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-accent-1 to-accent-3 rounded-2xl opacity-20 absolute -rotate-3 scale-95"></div>
+                        <div class="w-full h-96 bg-gradient-to-tr from-primary to-accent-2 rounded-2xl relative z-10 p-8">
+                            <h3 class="text-2xl font-bold mb-6">Our Process</h3>
+                            <ul class="space-y-6">
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center mr-4 pulse">
+                                        <span class="font-bold">01</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Analyze</h4>
+                                        <p class="text-gray-300 text-sm">In-depth research and data analysis to understand your business context</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center mr-4 pulse">
+                                        <span class="font-bold">02</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Design</h4>
+                                        <p class="text-gray-300 text-sm">Custom solutions tailored to your specific business needs</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center mr-4 pulse">
+                                        <span class="font-bold">03</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Implement</h4>
+                                        <p class="text-gray-300 text-sm">Expert deployment of solutions with minimal business disruption</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent-2 flex items-center justify-center mr-4 pulse">
+                                        <span class="font-bold">04</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1">Optimize</h4>
+                                        <p class="text-gray-300 text-sm">Continuous improvement through monitoring and refinement</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section id="tech-stack" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Technology Stack</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Cutting-edge tools and frameworks powering our solutions
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8" data-aos="fade-up">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fab fa-python text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">Python</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fab fa-react text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">React</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fab fa-node-js text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">Node.js</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fab fa-aws text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">AWS</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">OpenAI</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fab fa-google text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">Google Cloud</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fas fa-database text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">SQL/NoSQL</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 text-accent-3 mb-4 float">
+                        <i class="fas fa-brain text-4xl"></i>
+                    </div>
+                    <span class="text-gray-300 text-sm text-center">TensorFlow</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Common questions about our services and approach
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                <div class="card rounded-xl p-6" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-4">How can Anatera help my business grow?</h3>
+                    <p class="text-gray-300">
+                        Anatera understands business success through in-depth research and problem identification. By leveraging our analysis, we provide tested strategies and AI-powered solutions tailored to the specific needs of your business, ensuring you stay a step ahead of the competition.
+                    </p>
+                </div>
+                
+                <div class="card rounded-xl p-6" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-4">Why should I choose Anatera over other consultants?</h3>
+                    <p class="text-gray-300">
+                        We are the only business consultant that provides fact-based solutions through analysis and research, unlike other consultants who offer solutions based on expert intuition. Our AI-powered approach delivers measurable results with clear ROI, tailored specifically to your unique business challenges.
+                    </p>
+                </div>
+                
+                <div class="card rounded-xl p-6" data-aos="fade-right" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-4">What industries do you specialize in?</h3>
+                    <p class="text-gray-300">
+                        While our AI and digital transformation solutions can benefit businesses across all sectors, we have particular expertise in education, finance, healthcare, retail, and manufacturing industries. Our team has successfully implemented transformative solutions in organizations of all sizes, from startups to enterprise-level companies.
+                    </p>
+                </div>
+                
+                <div class="card rounded-xl p-6" data-aos="fade-left" data-aos-delay="400">
+                    <h3 class="text-xl font-bold mb-4">How long does implementation typically take?</h3>
+                    <p class="text-gray-300">
+                        Implementation timelines vary based on project scope and complexity. Simple AI integrations can be completed in as little as 4-6 weeks, while comprehensive digital transformation initiatives may span 3-6 months. We work with your team to establish realistic timelines and provide clear milestones throughout the process.
+                    </p>
+                </div>
+                
+                <div class="card rounded-xl p-6 md:col-span-2" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-bold mb-4">Do I need technical expertise to work with Anatera?</h3>
+                    <p class="text-gray-300">
+                        No technical expertise is required. We handle all the complex technical aspects while ensuring you understand the strategic value and business impact. Our team excels at translating technical concepts into clear business language, making the process accessible for all stakeholders regardless of technical background.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Ready to transform your business with AI-powered solutions? Contact us today.
+                </p>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start" data-aos="fade-up">
+                <!-- Contact Info (Left) -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-accent-3 text-xl mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Address</h4>
+                                <p class="text-gray-300">
+                                    Jl. Tukad Barito Timur Gg. I No.4, Panjer, Denpasar Selatan, Kota Denpasar, Bali 80225
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-accent-3 text-xl mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-300"><a href="mailto:info@anatera.co" class="hover:text-accent-3 transition">info@anatera.co</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-accent-3 text-xl mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p class="text-gray-300"><a href="tel:+6281234567890" class="hover:text-accent-3 transition">+62 812-3456-7890</a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-accent-3 text-xl mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Business Hours</h4>
+                                <p class="text-gray-300">Monday - Friday: 9AM - 5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://wa.me/6281234567890" target="_blank" class="text-accent-3 text-2xl hover:text-accent-2 transition" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/company/anatera" target="_blank" class="text-accent-3 text-2xl hover:text-accent-2 transition" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:info@anatera.co" class="text-accent-3 text-2xl hover:text-accent-2 transition" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <!-- Info Notice (Right) -->
+                <div class="flex items-center justify-center h-full">
+                    <div class="bg-primary bg-opacity-90 rounded-xl p-8 shadow-lg border-2 border-accent-2 text-center max-w-md mx-auto">
+                        <i class="fas fa-briefcase text-4xl text-accent-3 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4">Business Projects Only</h3>
+                        <p class="text-lg text-gray-300 mb-4">
+                            We are currently accepting projects from <span class="text-accent-3 font-semibold">businesses and enterprises only</span>.
+                        </p>
+                        <p class="text-lg text-gray-300 mb-4">
+                            Minimum project value: <span class="text-accent-3 font-semibold">USD 3,000</span>
+                        </p>
+                        <p class="text-gray-400">
+                            We focus on delivering high-quality, impactful solutions. Unfortunately, we are unable to accept small business or personal projects at this time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                        <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                        <stop offset="0%" stop-color="rgba(106, 61, 232, 0.5)"></stop>
+                        <stop offset="100%" stop-color="rgba(106, 61, 232, 0)"></stop>
+                    </radialGradient>
+                    <radialGradient id="Gradient4" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+                        <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                        <stop offset="0%" stop-color="rgba(78, 205, 196, 0.5)"></stop>
+                        <stop offset="100%" stop-color="rgba(78, 205, 196, 0)"></stop>
+                    </radialGradient>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
+                    <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
+                    <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient4)">
+                    <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite" />
+                    <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="-360 50 50" dur="18s" repeatCount="indefinite"/>
+                </rect>
+            </svg>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Ready to Transform Your Business?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10">
+                    Partner with Anatera and unlock the full potential of AI and digital transformation for your organization.
+                </p>
+                <a href="#contact" class="btn-gradient px-10 py-4 rounded-full font-medium text-lg inline-block">
+                    Start Your Journey Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <!-- Changed from text to image logo -->
+                    <img src="https://anaterastaticwebsite.s3.ap-southeast-2.amazonaws.com/logo.png" alt="ANATERA" class="h-12 mb-4">
+                    <p class="text-gray-300 mb-6">
+                        Your compass in the modern business world. Specializing in AI solutions, digital transformation, and data-driven strategies to guide your business to success.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        With Anatera, take your business to the next level!
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#services" class="hover:text-accent-3 transition">Services</a></li>
+                        <li><a href="#case-studies" class="hover:text-accent-3 transition">Case Studies</a></li>
+                        <li><a href="#about" class="hover:text-accent-3 transition">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-accent-3 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-accent-3 transition">AI Solutions</a></li>
+                        <li><a href="#" class="hover:text-accent-3 transition">Digital Transformation</a></li>
+                        <li><a href="#" class="hover:text-accent-3 transition">Data Analytics</a></li>
+                        <li><a href="#" class="hover:text-accent-3 transition">Intelligent Automation</a></li>
+                        <li><a href="#" class="hover:text-accent-3 transition">Strategic Consulting</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2023 Anatera. All rights reserved.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent-3 transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-accent-3 transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            });
+            
+            closeMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+            
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            });
+            
+            // Typing animation for INTELLIGENT text
+            const intelligentText = document.getElementById('intelligent-text');
+            if (intelligentText) {
+                const words = ["INTELLIGENT", "INNOVATIVE", "POWERFUL", "ADVANCED"];
+                let currentWordIndex = 0;
+                let currentLetterIndex = 0;
+                let isDeleting = false;
+                let typingSpeed = 150;
+                
+                function typeEffect() {
+                    const currentWord = words[currentWordIndex];
+                    
+                    if (isDeleting) {
+                        // Deleting letters
+                        intelligentText.textContent = currentWord.substring(0, currentLetterIndex - 1);
+                        currentLetterIndex--;
+                        typingSpeed = 75; // Faster when deleting
+                    } else {
+                        // Adding letters
+                        intelligentText.textContent = currentWord.substring(0, currentLetterIndex + 1);
+                        currentLetterIndex++;
+                        typingSpeed = 150; // Normal speed when typing
+                    }
+                    
+                    // When word is complete, start deleting after a pause
+                    if (!isDeleting && currentLetterIndex === currentWord.length) {
+                        isDeleting = true;
+                        typingSpeed = 1000; // Pause before starting to delete
+                    }
+                    
+                    // When deletion is complete, move to next word
+                    if (isDeleting && currentLetterIndex === 0) {
+                        isDeleting = false;
+                        currentWordIndex = (currentWordIndex + 1) % words.length;
+                        typingSpeed = 500; // Pause before typing new word
+                    }
+                    
+                    setTimeout(typeEffect, typingSpeed);
+                }
+                
+                // Start typing animation
+                typeEffect();
+            }
+            
+            // Initialize particles.js
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#6a3de8"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#6a3de8",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Initialize charts
+            const ctxData = document.getElementById('dataAnalysisChart').getContext('2d');
+            const dataAnalysisChart = new Chart(ctxData, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Raw Data',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: 'rgba(78, 205, 196, 0.2)',
+                        borderColor: 'rgba(78, 205, 196, 1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    }, {
+                        label: 'AI Processed',
+                        data: [5, 15, 10, 30, 22, 40],
+                        backgroundColor: 'rgba(106, 61, 232, 0.2)',
+                        borderColor: 'rgba(106, 61, 232, 1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const ctxImprovement = document.getElementById('improvementChart').getContext('2d');
+            const improvementChart = new Chart(ctxImprovement, {
+                type: 'line',
+                data: {
+                    labels: ['Initial', 'Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                    datasets: [{
+                        label: 'System Accuracy',
+                        data: [65, 70, 76, 82, 87, 91, 95],
+                        backgroundColor: 'rgba(106, 61, 232, 0.2)',
+                        borderColor: 'rgba(106, 61, 232, 1)',
+                        borderWidth: 2,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const ctxResults = document.getElementById('resultsChart').getContext('2d');
+            const resultsChart = new Chart(ctxResults, {
+                type: 'bar',
+                data: {
+                    labels: ['Cost Reduction', 'Efficiency Improvement', 'Revenue Growth', 'Customer Satisfaction'],
+                    datasets: [{
+                        label: 'Before Anatera',
+                        data: [15, 35, 12, 45],
+                        backgroundColor: 'rgba(78, 205, 196, 0.5)',
+                        borderColor: 'rgba(78, 205, 196, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'After Anatera',
+                        data: [42, 95, 38, 87],
+                        backgroundColor: 'rgba(106, 61, 232, 0.5)',
+                        borderColor: 'rgba(106, 61, 232, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
